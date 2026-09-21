@@ -1,0 +1,530 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>REM1-Session 3-Real Estate Indices & Measuring Performance</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+		<link rel="stylesheet" href="tweaks.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section data-background-image="imgs/title-bg.jpg" >
+
+					<h2 style="line-height: 0.8em;"><span class="transparent70">Real Estate Indices &amp; Measuring Performance</span><span class="subtitle transparent70"><br />REM1 &mdash; Session 3 of 6</span></h2>
+
+					<p style="font-size: 0.8em; margin-top: 1.4em;"><span class="transparent70">Professor Thies Lindenthal
+						<br /><a href="mailto:htl24@cam.ac.uk">htl24@cam.ac.uk</a>
+						<br /><a href="https://lindenthal.eu/">lindenthal.eu</a>
+						<br />
+						<br />
+						September 2026</span></p>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## The Challenge<span class="subtitle"><br/>How to track the investment performance of real estate?</span>
+
+						* It’s the world’s largest asset class—which methods can we use to assess its risk and return?
+						* High-level overview of core approaches.
+						* Asset class level vs. asset level risk and return.
+					</textarea>
+				</section>
+
+				<section data-markdown data-background-image="imgs/house.jpg">
+					<textarea data-template>
+						## <span class="darkonlight">A real challenge...</span><span class="darkonlight subtitle"><br/>...not just for sophisticated big investors but also households.</span>
+
+						* <span class="darkonlight">3 BR late Victorian terraced house in East Cambridge. Sold for almost £0.5 million in August 2019.</span>
+						* <span class="darkonlight">How much return can the new owners expect?</span>
+						* <span class="darkonlight">How much risk do they face?</span>
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Total investment returns<span class="subtitle"><br/>Capital appreciation + Income return - taxes - costs</span>
+
+						* Prices, rents, taxes, and costs not readily observable
+						* Historic performance
+							- Past returns relevant, e.g. for compensation of asset managers or for taxation.
+						* Still we mostly care about the future: Is past a good basis for forming expectations of future returns and risk?
+							- Yes: The underlying fundamentals should remain in place.
+							- No: Sometimes, fundamentals change.
+						* Also, are we sure we really capture the past correctly? How far to go back?
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Performance tracking<span class="subtitle"><br/>Real assets: Property, art, old cars, startups (maybe)</span>
+
+						* For many financial securities, there is a central marketplace that produces price information almost 24/7.
+						* Real estate is traded privately.
+						* Assets are unique: Location, quality.
+						* Three general approaches possible
+							- Create our own valuations: Appraisals.
+							- Derive information from transactions: Comparables.
+							- Extract information from financial markets.
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Index families<span class="subtitle"><br/>3 major types of indices</span>
+
+						| Index type | Source | Examples |
+						|:---|:---|:---|
+						| **Appraisal-based** | Professional appraisals of individual properties, typically self-reported by managers | NCREIF Property Index, MSCI/IPD |
+						| **Transactions-based** | Actual prices of traded properties; must control for “apples vs oranges” | Moody’s/RCA CPPI, CoStar CCRSI, SPAR/hedonic |
+						| **Stock market-based** | REIT share prices, de-levered & filtered to represent “pure” property | FTSE-NAREIT PureProperty®, EPRA |
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Pro/con<span class="subtitle"><br/>&ndash; by index type &ndash;</span>
+
+						| Index type | Strengths | Weaknesses |
+						|:---|:---|:---|
+						| **Appraisal-based** | Available when others aren’t; strong profession & tradition | Opinions not prices; lag & smooth market values; can be influenced |
+						| **Transactions-based** | Reflect actual market equilibrium; objective, hard to manipulate | Need large historical database; statistical models; noisy; subject to revision |
+						| **Stock market-based** | Traded in many countries; efficient, liquid; daily updates | Few/short-history REITs in some countries; requires de-levering; reflects stock market idiosyncrasies |
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+					## News-response time <span class="subtitle"><br/>&ndash; by index type &ndash;</span>
+					<img src="imgs/responsetime.png">
+
+					* Stock market-based indices react fastest (as efficient as the REIT market itself)
+					* Transaction-based indices lag—deals take months to close
+					* Valuation-based indices lag most: months, sometimes quarters
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Stale appraisals<span class="subtitle"><br/>Appraisals are lagging true trends.</span>
+
+						* Appraisals are updated infrequently
+							- Quarterly? Monthly? Too expensive to do this e.g. every day.
+						* New information should be incorporated into appraisals...
+							- ...still, there is often a lag between a deal closing and the appraiser hearing about it.
+						* Appraisers are careful/conservative
+							- Update valuation only a bit, see if the trend continues, fully adjust later.
+							- Returns are therefore smoothed (moving average) and subject to first-order autocorrelation.
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+					## IPD/MSCI office<span class="subtitle"><br/>Valuation-based indices are too smooth: SD 1.19%, FOAC 0.86</span>
+
+					<img src="imgs/ipd_smoothed.svg" height=300>
+
+					* Can we fix the underlying problem at the asset level? Not really—appraisers have good reasons to incorporate new information gradually.
+					* We can (and should!) alleviate the problem at the index level.
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+					## De-smoothing<span class="subtitle"><br/>Band-aid for valuation-based indices.</span>
+
+					* Model the smoothed return $r_t$ as a weighted average of the previous return $r_{t-1}$ and the “true” return $r\text{*}_t$:
+						- $ r_t = \alpha r_{t-1} + (1 - \alpha)r\text{*}_t $
+					* Re-arrange, solve for $ r\text{*}_t $:
+						- $ r\text{*}_t =  \frac{r_t - \alpha r_{t-1}} { 1 - \alpha} $
+					* De-smoothed with alpha = 0.7: mean unchanged, SD 1.19% &rarr; 2.1%, FOAC 0.86 &rarr; 0.13
+					<img src="imgs/ipd_desmoothed.svg" height=260>
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+					## Which alpha?<span class="subtitle"><br/>Which parameter value is the right one?</span>
+
+					<table class="noborders">
+						<tr>
+							<td>alpha = 0.1<img src="imgs/ipd_des_0_1.svg" height=175></td>
+							<td>alpha = 0.3<img src="imgs/ipd_des_0_3.svg" height=175></td>
+						</tr>
+						<tr>
+							<td>alpha = 0.7<img src="imgs/ipd_des_0_7.svg" height=175></td>
+							<td>alpha = 0.9<img src="imgs/ipd_des_0_9.svg" height=175></td>
+						</tr>
+					</table>
+					* Is the added parameter uncertainty around alpha worth it? Yes—smoothed returns are most likely worse than imperfectly desmoothed ones.
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Transactions more timely?<span class="subtitle"><br/>Transaction-based indices are lagging true trends as well.</span>
+
+						* Not as much as appraisals, but still lagging.
+						* Closing a property deal often takes months
+							- Agree on price in June, exchange contracts in August?
+						* Very few transactions in market downturns
+							- Financial constraints and loss aversion keep owners from selling below a certain price.
+						* (Practical examples later in this session.)
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Space-time dilemma<span class="subtitle"><br/>What to focus on: Frequency of index or geographic/sector detail?</span>
+						<img src="imgs/space_time_dilemma.png" height="450">
+
+						* Pick your poison: high frequency needs broad (e.g. countrywide) coverage; narrow (city/sector) coverage forces lower frequency.
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Representativeness of index<span class="subtitle"><br/>What is the benchmark really representing? Relevant for my asset?</span>
+						<img src="imgs/gherkin.png">
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Coming back to 3 approaches<span class="subtitle"><br/>What type of properties do the index families cover?</span>
+
+						* Three examples for the UK—does the Gherkin feature in any?
+						* EPRA (stock market-based)
+							- Criteria for REITs to be included: minimum free-float market cap/liquidity.
+						* MSCI/IPD (valuation-based)
+							- Directly-owned properties from contributing organisations only.
+							- What about sovereign wealth funds, overseas investors?
+						* Transaction-based indices
+							- How often are landmark buildings sold? Not very frequently... (Not since 2014.)
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Rents? Costs?<span class="subtitle"><br/>Total return: Price appreciation + yield - costs and taxes</span>
+
+						* How to benchmark rents, costs?
+						* Data on rents and costs are even more difficult to obtain than sales prices
+							- No land registry for rents (short term, at least).
+						* Similar challenges to price indices: appraisals? hedonic analysis? repeat-rent indices?
+						* In empirical studies, rents and prices are often observed from different samples
+							- Problematic if the underlying properties/locations aren’t comparable (more: <a href="https://academic.oup.com/rfs/article/34/8/3608/6222230">Eichholtz, Korevaar, Lindenthal &amp; Tallec, 2021</a>)
+					</textarea>
+				</section>
+
+				<section data-background-image="imgs/house.jpg">
+					<h2><span class="darkonlight">A good investment?</span><span class="darkonlight subtitle"><br/>An easy question, really hard to answer!</span></h2>
+					<ul class="darkonlight">
+						<li><span class="darkonlight">Exceptional performance, low risk, high return?
+							<ul class="darkonlight"><li><span class="darkonlight">According to <a href="https://academic.oup.com/qje/article/134/3/1225/5435538">Jordà et al. (2019)</a> residential real estate offers high returns and low risk—they speak of a “house risk premium puzzle”.</span></li></ul></span>
+						</li>
+						<li><span class="darkonlight">With better data and more careful estimation, the picture gets less rosy
+							<ul class="darkonlight"><li><span class="darkonlight"><a href="https://academic.oup.com/rfs/article/34/8/3608/6222230">Eichholtz et al. (RFS, 2021)</a> or <a href="https://academic.oup.com/rfs/article/34/8/3572/6187963">Chambers et al. (RFS, 2021)</a> show Sharpe ratios are significantly lower when measuring returns at asset level.</span></li></ul></span>
+						</li>
+					</ul>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Index accuracy matters!<span class="subtitle"><br/>Total returns at asset-level vs. combinations of aggregate rent, price, cost indices.</span>
+
+						<img src="imgs/rfs2.png" height=420>
+
+						* Real net total returns: 4.0% (Paris), 4.8% (Amsterdam)—entirely from rental yields.
+						* Lower and less risky than Jordà et al. (2019) for the same cities: yields imputed from price indices are prone to error.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Risk<span class="subtitle"><br/>Large investors can spread the risk... Can you?</span>
+
+						<img src="imgs/systematicrisk.png" height=420>
+
+						* Risk at single-asset level—realistic for most investors.
+						* Idiosyncratic risk (blue) dominates, especially at shorter holding periods.
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Summing up<span class="subtitle"><br/>Real estate return estimation is not trivial.</span>
+
+						* Perfect data do not exist—aim is to get as close as possible to realistic numbers.
+						* Know your benchmarks! You have to know how return data were collected and processed.
+							- Pulling in numbers from reputable sources without understanding their origin is a cardinal sin. Don’t be that person.
+						* Data availability determines the most suitable index methodology.
+						* Market returns are usually not available to individual investors
+							- Expected risk for individual properties is higher than for city/sector/country-wide indices.
+						* Total returns matter—don’t just look at capital gains.
+					</textarea>
+				</section>
+
+				<section data-background-image="imgs/door.jpg">
+					<h2 style="line-height: 0.8em;"><span class="darkonlight">Break</span><span class="subtitle darkonlight"><br />10 minutes</span></h2>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Transaction-based indices<span class="subtitle"><br/>An applied introduction: roll your own index!</span>
+
+						* Sales data for Cambridge from Land Registry
+							- ~113K observations, all sales 1995&ndash;2021
+							- Limited information on property attributes
+						<img src="imgs/cambridgedata.png" height=250>
+						* Code in R, using RStudio Desktop (free)
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## First estimates<span class="subtitle"><br/>Average sales price in sample: £264K, Median £215K.</span>
+						* Prices seem lognormally distributed... not perfect, but OK.
+						<img src="imgs/hist.jpg" height="450">
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Various house types<span class="subtitle"><br/>Flats, terraced, semi-detached and detached homes.</span>
+						<img src="imgs/barplot_types.jpg" height="450">
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Average price/year<span class="subtitle"><br/>The easiest approach: quick and dirty, first trends visible</span>
+						<img src="imgs/index_means.jpg" height="450">
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Median/year<span class="subtitle"><br/>Medians are less influenced by outliers.</span>
+						<img src="imgs/index_medians.jpg" height="450">
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Intuition<span class="subtitle"><br/>Medians are less influenced by outliers.</span>
+
+						* Assume we have two samples
+							- {250, 275, 300, 325, 350}
+							- {250, 275, 300, 325, 3500}
+						* The median is 300, for both samples.
+						* The means are 300 and 930, respectively.
+							- The outlier affected the mean but not the median.
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Rebase: 1995=100<span class="subtitle"><br/>Same starting value for better comparison. Small deviations only?</span>
+						<img src="imgs/index_medians_rebased.jpg" height="450">
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Returns<span class="subtitle"><br/>Big differences, especially around 2007&ndash;2010. $\tiny Return_t = ( Index_{t+1} / Index_{t} - 1) \times 100 $</span>
+						<img src="imgs/index_returns.jpg" height="350">
+						* Strong differences don’t instill confidence. Which one is correct?
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Quality changes<span class="subtitle"><br/>Share of flats increases—this will influence indices!</span>
+						<img src="imgs/type_shares.jpg" height="450">
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Intuition<span class="subtitle"><br/>Quality changes or price changes?</span>
+						<div class="smalltable">
+
+						|  |  |  2019|  2020 | Change |
+						|	----	| ----- | ----| -----| --- |
+						| **constant prices**		| detached | £500,000 | £500,000 | 0% |
+						|		| flat | £300,000 | £300,000 | 0% |
+						| **num. sales per type changes**	| detached | 1 | 9 |
+						|		| flat | 9 | 1 |
+						|	 **average sales price** | market | £320,000 | £480,000| +50% |
+						| **median sales price** | market |£300,000 | £500,000| +60% |
+
+						</div>
+
+						* Prices have not moved—but average and median sales prices increased. Oops.
+						* We need to control for the fact that the distribution of types has changed!
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Control for quality<span class="subtitle"><br/>Hedonic regressions (nothing to do with hedonism)</span>
+
+						* Sales price is a function of building attributes, location and time.
+						* A house is a bundle of “hedonics”.
+							- Example: Price = £100,000 + £50,000 &times; #bedrooms + £30,000 if new ...
+						* Estimated in a regression. Dependent variable: ln(price).
+						* Independent variables
+							- Property quality: type, freehold, new, m², #bedrooms, ...
+							- Time dummies: annual/quarterly/monthly/...
+							- Location dummies
+
+						$$ \tiny ln(Price_i) = \alpha + \sum_{k=1}^{k=K} \beta_kX_{k,i} +  \sum_{y=1995}^{y=2021} \gamma_kY_{y,i} + \epsilon_i $$
+					</textarea>
+				</section>
+
+				<section>
+					<h2>Regression estimates<span class="subtitle"><br />How much do quality characteristics contribute to price?</span></h2>
+					<ul><li>Flats are 19% cheaper than detached homes: $\tiny 1- E^{-0.205} =1- 0.81=0.19$</li></ul>
+
+					<pre><code data-noescape data-line-numbers="7">
+==================================================
+                         Dependent variable:
+                    ------------------------------
+                              log(price)
+--------------------------------------------------
+propertytypeF                 -0.205***
+                               (0.009)
+
+propertytypeS                 -0.367***
+                               (0.003)
+
+propertytypeT                 -0.412***
+                               (0.003)
+
+newY                           0.127***
+                               (0.003)
+
+...year dummies 1996&ndash;2021 omitted for space...
+
+Constant                      11.550***
+                               (0.007)
+--------------------------------------------------
+Observations                   113,422
+R2                              0.658
+==================================================
+Note:                  *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Index based on year dummies<span class="subtitle"><br />1995 is the base year.</span></h2>
+					<ul><li>Index estimate for 2017: 541. ($\small e^{1.689} \times 100 = 5.41 \times 100=541$)</li></ul>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Index comparison: levels<span class="subtitle"><br/>Estimates not too different? Sample is relatively homogeneous?</span>
+						<img src="imgs/index_hedonic.jpg" height="450">
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Index comparison: returns<span class="subtitle"><br/>Diff. in 2002/03, 2008, 2012, 2021... Quality differences matter!</span>
+						<img src="imgs/index_hedonic_returns.jpg" height="450">
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Repeat-sales index<span class="subtitle"><br/>Hedonic regressions cannot capture all quality details!</span>
+
+						* Often only address, price and date are known—no hedonic characteristics.
+						* Focus on pairs of transactions of the same building
+							- Location unchanged; quality assumed unchanged (capex & depreciation?); any price change is a true time trend.
+						* Drawback
+							- Wastes data: buildings sold only once are discarded.
+							- Is the sample representative? Starter homes trade more often—overrepresented in the index.
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Hedonic vs repeat sales<span class="subtitle"><br/>Correction in crisis faster—but shorter?</span>
+						<img src="imgs/index_hedonic_repeat.jpg" height="450">
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Sample differences?<span class="subtitle"><br/>Are all property types equally represented in estimation? Bias?</span>
+
+						* Comparing distribution of property types among buildings that appear in the repeat-sales sample to those that do not
+							- More terraced houses in repeat sales! <img src="imgs/sample_differences.jpg">
+						* Not random variation: Pearson’s chi-squared test: $\small \chi^2$ = 761.5, df = 3, p-value &lt; 2.2e-16
+						* Repeat sales tend to over-represent starter homes/low-quality homes.
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Run the code yourself!<span class="subtitle"><br/>Learning by doing!</span>
+
+						* Questions you could explore:
+							- (How) do outliers influence the results?
+							- How noisy will a monthly index become?
+							- Should we estimate indices for each house type individually?
+							- How reliable are any estimates during the 2008&ndash;2009 crisis?
+						* If you have questions, reach out!
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Further Reading<span class="subtitle"><br/>Book chapters &amp; papers referenced in this session</span>
+
+						* <strong>Book:</strong> Geltner, Miller, Clayton &amp; Eichholtz, <em>Commercial Real Estate Analysis and Investments</em> — Ch. 3 (Measuring Investment Performance)
+						* Jordà, Ò., Knoll, K., Kuvshinov, D., Schularick, M. &amp; Taylor, A. (2019). <a href="https://academic.oup.com/qje/article/134/3/1225/5435538">The Rate of Return on Everything, 1870&ndash;2015</a>. <em>Quarterly Journal of Economics</em>.
+						* Eichholtz, P., Korevaar, M., Lindenthal, T. &amp; Tallec, R. (2021). <a href="https://academic.oup.com/rfs/article/34/8/3608/6222230">The Total Return and Risk to Residential Real Estate</a>. <em>Review of Financial Studies</em>.
+						* Genesove, D. &amp; Mayer, C. (2001). <a href="https://doi.org/10.1162/003355301753265561">Loss Aversion and Seller Behavior: Evidence from the Housing Market</a>. <em>Quarterly Journal of Economics</em>.
+					</textarea>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				transition: 'none',
+				width: 1244,
+				height: 700,
+				margin: 0.1,
+				math: {
+					mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: { Macros: { RR: "{\\bf R}" } },
+					"HTML-CSS": { availableFonts: ["STIX-Web"], preferredFont: "STIX-Web", webFont: "STIX-Web" },
+					inlineMath: [['$','$'], ['\\(','\\)']],
+					processEscapes: true
+				},
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>
