@@ -80,6 +80,7 @@
 
 				<section data-markdown >
 					<textarea data-template>
+						<!-- .slide: class="tablebullettext" -->
 						## Index families<span class="subtitle"><br/>3 major types of indices</span>
 
 						| Index type | Source | Examples |
@@ -92,6 +93,7 @@
 
 				<section data-markdown >
 					<textarea data-template>
+						<!-- .slide: class="tablebullettext" -->
 						## Pro/con<span class="subtitle"><br/>&ndash; by index type &ndash;</span>
 
 						| Index type | Strengths | Weaknesses |
@@ -131,7 +133,7 @@
 					<textarea data-template>
 					## IPD/MSCI office<span class="subtitle"><br/>Valuation-based indices are too smooth: SD 1.19%, FOAC 0.86</span>
 
-					<img src="imgs/ipd_smoothed.svg" height=300>
+					<img src="imgs/ipd_smoothed.svg" height=330>
 
 					* Can we fix the underlying problem at the asset level? Not really—appraisers have good reasons to incorporate new information gradually.
 					* We can (and should!) alleviate the problem at the index level.
@@ -142,10 +144,10 @@
 					<textarea data-template>
 					## De-smoothing<span class="subtitle"><br/>Band-aid for valuation-based indices.</span>
 
-					* Model the smoothed return $r_t$ as a weighted average of the previous return $r_{t-1}$ and the “true” return $r\text{*}_t$:
-						- $ r_t = \alpha r_{t-1} + (1 - \alpha)r\text{*}_t $
-					* Re-arrange, solve for $ r\text{*}_t $:
-						- $ r\text{*}_t =  \frac{r_t - \alpha r_{t-1}} { 1 - \alpha} $
+					* Model the smoothed return $r\_t$ as a weighted average of the previous return $r\_{t-1}$ and the “true” return $r\_t^\ast$:
+						- $ r\_t = \alpha r\_{t-1} + (1 - \alpha) r\_t^\ast $
+					* Re-arrange, solve for $ r\_t^\ast $:
+						- $ r\_t^\ast = \frac{r\_t - \alpha r\_{t-1}}{1 - \alpha} $
 					* De-smoothed with alpha = 0.7: mean unchanged, SD 1.19% &rarr; 2.1%, FOAC 0.86 &rarr; 0.13
 					<img src="imgs/ipd_desmoothed.svg" height=260>
 					</textarea>
@@ -157,14 +159,15 @@
 
 					<table class="noborders">
 						<tr>
-							<td>alpha = 0.1<img src="imgs/ipd_des_0_1.svg" height=175></td>
-							<td>alpha = 0.3<img src="imgs/ipd_des_0_3.svg" height=175></td>
+							<td><span class="figlabel">alpha = 0.1</span><img src="imgs/ipd_des_0_1.svg" height=158></td>
+							<td><span class="figlabel">alpha = 0.3</span><img src="imgs/ipd_des_0_3.svg" height=158></td>
 						</tr>
 						<tr>
-							<td>alpha = 0.7<img src="imgs/ipd_des_0_7.svg" height=175></td>
-							<td>alpha = 0.9<img src="imgs/ipd_des_0_9.svg" height=175></td>
+							<td><span class="figlabel">alpha = 0.7</span><img src="imgs/ipd_des_0_7.svg" height=158></td>
+							<td><span class="figlabel">alpha = 0.9</span><img src="imgs/ipd_des_0_9.svg" height=158></td>
 						</tr>
 					</table>
+
 					* Is the added parameter uncertainty around alpha worth it? Yes—smoothed returns are most likely worse than imperfectly desmoothed ones.
 					</textarea>
 				</section>
@@ -282,11 +285,13 @@
 					<textarea data-template>
 						## Transaction-based indices<span class="subtitle"><br/>An applied introduction: roll your own index!</span>
 
-						* Sales data for Cambridge from Land Registry
+						* Sales data for Cambridge from Land Registry [<a href="https://www.dropbox.com/s/17po0isp50in67k/sales_cambridge.csv?dl=0">download</a>]
 							- ~113K observations, all sales 1995&ndash;2021
 							- Limited information on property attributes
+
 						<img src="imgs/cambridgedata.png" height=250>
-						* Code in R, using RStudio Desktop (free)
+
+						* Code in R [<a href="https://github.com/thies/teaching/blob/master/code/indices.R">here</a>], using <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a> (free)
 					</textarea>
 				</section>
 
@@ -342,7 +347,9 @@
 				<section data-markdown >
 					<textarea data-template>
 						## Returns<span class="subtitle"><br/>Big differences, especially around 2007&ndash;2010. $\tiny Return_t = ( Index_{t+1} / Index_{t} - 1) \times 100 $</span>
+
 						<img src="imgs/index_returns.jpg" height="350">
+
 						* Strong differences don’t instill confidence. Which one is correct?
 					</textarea>
 				</section>
@@ -356,19 +363,17 @@
 
 				<section data-markdown >
 					<textarea data-template>
+						<!-- .slide: class="tablebullettext" -->
 						## Intuition<span class="subtitle"><br/>Quality changes or price changes?</span>
-						<div class="smalltable">
 
-						|  |  |  2019|  2020 | Change |
-						|	----	| ----- | ----| -----| --- |
-						| **constant prices**		| detached | £500,000 | £500,000 | 0% |
-						|		| flat | £300,000 | £300,000 | 0% |
-						| **num. sales per type changes**	| detached | 1 | 9 |
-						|		| flat | 9 | 1 |
-						|	 **average sales price** | market | £320,000 | £480,000| +50% |
-						| **median sales price** | market |£300,000 | £500,000| +60% |
-
-						</div>
+						| | | 2019 | 2020 | Change |
+						|:---|:---|---:|---:|---:|
+						| **Constant prices** | detached | £500,000 | £500,000 | 0% |
+						| | flat | £300,000 | £300,000 | 0% |
+						| **Num. sales per type changes** | detached | 1 | 9 | |
+						| | flat | 9 | 1 | |
+						| **Average sales price** | market | £320,000 | £480,000 | +50% |
+						| **Median sales price** | market | £300,000 | £500,000 | +67% |
 
 						* Prices have not moved—but average and median sales prices increased. Oops.
 						* We need to control for the fact that the distribution of types has changed!

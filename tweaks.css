@@ -125,6 +125,23 @@ span.smalltable >* td,th {
     margin: 0;
     font-size: 0.5em;}
 
+/* table header and body at the same size as bullet text (LI: 0.7em) */
+.reveal section.tablebullettext table {
+  font-size: 0.7em;
+  margin-bottom: 1em;
+}
+.reveal section.tablebullettext table th,
+.reveal section.tablebullettext table td {
+  font-size: 1em;
+}
+
+/* small label above a figure in a table cell */
+.figlabel {
+  display: block;
+  font-size: 0.6em;
+  font-weight: bold;
+}
+
 mark{
      background-color:#c0ffc8;
     }
